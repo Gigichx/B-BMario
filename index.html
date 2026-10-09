@@ -6,31 +6,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Affittacamere Bitritto | Camere vicino Bari</title>
   <meta name="description"
-    content="Affittacamere a Bitritto, a pochi minuti da Bari: camere curate, colazione pugliese e contatto diretto senza commissioni. Richiedi informazioni o scrivici su WhatsApp.">
+    content="Affittacamere a Bitritto, a pochi minuti da Bari: camere curate, colazione pugliese e contatto diretto senza commissioni.">
   <meta name="theme-color" content="#283024">
-  <link rel="alternate" hreflang="it" href="https://www.example.it/">
-  <link rel="alternate" hreflang="en" href="https://www.example.it/en/">
+
+  <!-- Collegamento al file CSS -->
   <link rel="stylesheet" href="assets/CSS/Style.css">
 
+  <!-- Dati strutturati Schema.org per la Local SEO -->
   <script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@type":"BedAndBreakfast",
- "name":"Affittacamere Bitritto",
- "description":"Affittacamere a Bitritto, vicino Bari, con camere curate e prenotazione diretta.",
- "url":"https://www.example.it/",
- "telephone":"+39 389 887 3499",
- "email":"info@example.it",
- "priceRange":"€€",
- "address":{"@type":"PostalAddress","streetAddress":"Via da definire","addressLocality":"Bitritto","addressRegion":"BA","postalCode":"70020","addressCountry":"IT"},
- "geo":{"@type":"GeoCoordinates","latitude":41.0388,"longitude":16.9242},
- "amenityFeature":[
-  {"@type":"LocationFeatureSpecification","name":"Wi-Fi gratuito","value":true},
-  {"@type":"LocationFeatureSpecification","name":"Aria condizionata","value":true},
-  {"@type":"LocationFeatureSpecification","name":"Bagno privato","value":true}],
- "sameAs":["https://www.booking.com/","https://www.airbnb.it/"]
-}
-</script>
+  {
+   "@context":"https://schema.org",
+   "@type":"BedAndBreakfast",
+   "name":"Affittacamere Bitritto",
+   "description":"Affittacamere a Bitritto, vicino Bari, con camere curate e prenotazione diretta.",
+   "url":"https://www.example.it/",
+   "telephone":"+39 000 000 0000",
+   "email":"info@example.it",
+   "priceRange":"€€",
+   "address":{"@type":"PostalAddress","streetAddress":"Via da definire","addressLocality":"Bitritto","addressRegion":"BA","postalCode":"70020","addressCountry":"IT"},
+   "geo":{"@type":"GeoCoordinates","latitude":41.0388,"longitude":16.9242},
+   "availableLanguage":["it","en"],
+   "amenityFeature":[
+    {"@type":"LocationFeatureSpecification","name":"Wi-Fi gratuito","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Aria condizionata","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Bagno privato","value":true}],
+   "sameAs":["https://www.booking.com/","https://www.airbnb.it/"]
+  }
+  </script>
 </head>
 
 <body>
@@ -38,28 +40,35 @@
   <header id="top">
     <div class="wrap bar">
       <a class="logo" href="#top">Affittacamere Bitritto</a>
-      <nav aria-label="Principale">
-        <button class="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Apri il menu">☰</button>
-        <ul id="menu">
-          <li><a href="#identita">La casa</a></li>
-          <li><a href="#camere">Camere</a></li>
-          <li><a href="#servizi">Servizi</a></li>
-          <li><a href="#dintorni">Dintorni</a></li>
-          <li><a href="#contatti">Prenota</a></li>
-        </ul>
-      </nav>
+      <div class="right">
+        <nav aria-label="Principale">
+          <button class="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Apri il menu">☰</button>
+          <ul id="menu">
+            <li><a href="#identita" data-i18n="n_home">La casa</a></li>
+            <li><a href="#camere" data-i18n="n_rooms">Camere</a></li>
+            <li><a href="#servizi" data-i18n="n_serv">Servizi</a></li>
+            <li><a href="#dintorni" data-i18n="n_near">Dintorni</a></li>
+            <li><a href="#recensioni" data-i18n="n_rev">Recensioni</a></li>
+            <li><a href="#contatti" data-i18n="n_book">Prenota</a></li>
+          </ul>
+        </nav>
+        <div class="lang" role="group" aria-label="Lingua / Language">
+          <button type="button" data-lang="it" aria-pressed="true">IT</button>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="hero" aria-labelledby="h1">
       <div class="wrap">
-        <h1 id="h1">Un soggiorno che ha il ritmo della casa.</h1>
-        <p class="sub">Affittacamere a Bitritto, a pochi minuti da Bari: il modo più tranquillo di stare tra città,
-          campagna e mare.</p>
+        <h1 id="h1" data-i18n="h1">Un soggiorno che ha il ritmo della casa.</h1>
+        <p class="sub" data-i18n="sub">Affittacamere a Bitritto, a pochi minuti da Bari: il modo più tranquillo di stare
+          tra città, campagna e mare.</p>
         <div class="cta">
-          <a class="btn btn-primary" href="#camere">Scopri le Camere</a>
-          <a class="btn btn-ghost" href="#contatti">Verifica Disponibilità</a>
+          <a class="btn btn-primary" href="#camere" data-i18n="c1">Scopri le Camere</a>
+          <a class="btn btn-ghost" href="#contatti" data-i18n="c2">Verifica Disponibilità</a>
         </div>
       </div>
     </section>
@@ -67,83 +76,86 @@
     <section id="identita" aria-labelledby="h-id">
       <div class="wrap identity rv">
         <div>
-          <h2 id="h-id">Ospitalità pugliese, senza scenografie</h2>
-          <p>Qui la porta si apre su una casa vera. Ti accogliamo di persona, ti diciamo dove mangiare bene a Bitritto e
-            quando conviene partire per Bari per evitare il traffico.</p>
-          <p>Le camere sono semplici e curate: lenzuola di cotone, luce naturale, silenzio la sera. Il resto lo fa il
-            territorio, tra ulivi, muretti a secco e pasticcerie che aprono all'alba.</p>
+          <h2 id="h-id" data-i18n="id_h">Ospitalità pugliese, senza scenografie</h2>
+          <p data-i18n="id_p1">Qui la porta si apre su una casa vera. Ti accogliamo di persona, ti diciamo dove mangiare
+            bene a Bitritto e quando conviene partire per Bari per evitare il traffico.</p>
+          <p data-i18n="id_p2">Le camere sono semplici e curate: lenzuola di cotone, luce naturale, silenzio la sera. Il
+            resto lo fa il territorio, tra ulivi, muretti a secco e pasticcerie che aprono all'alba.</p>
         </div>
         <div class="facts">
-          <div><span>Posizione</span><span>Bitritto, 10 min da Bari</span></div>
-          <div><span>Camere</span><span>3 tipologie</span></div>
-          <div><span>Colazione</span><span>Prodotti locali</span></div>
-          <div><span>Prenotazione</span><span>Diretta, senza commissioni</span></div>
+          <div><span data-i18n="f1l">Posizione</span><span data-i18n="f1v">Bitritto, 10 min da Bari</span></div>
+          <div><span data-i18n="f2l">Camere</span><span data-i18n="f2v">3 tipologie</span></div>
+          <div><span data-i18n="f3l">Colazione</span><span data-i18n="f3v">Prodotti locali</span></div>
+          <div><span data-i18n="f4l">Prenotazione</span><span data-i18n="f4v">Diretta, senza commissioni</span></div>
         </div>
       </div>
     </section>
 
     <section class="rooms" id="camere" aria-labelledby="h-rooms">
       <div class="wrap">
-        <h2 id="h-rooms">Camere a Bitritto</h2>
-        <p>Scegli la camera più adatta al tuo viaggio e scrivici: ti rispondiamo con disponibilità e tariffa migliore.
-        </p>
+        <h2 id="h-rooms" data-i18n="r_h">Camere a Bitritto</h2>
+        <p data-i18n="r_p">Scegli la camera più adatta al tuo viaggio e scrivici: ti rispondiamo con disponibilità e
+          tariffa migliore.</p>
         <div class="grid">
           <article class="card rv">
-            <div class="gallery" role="img" aria-label="Galleria fotografica Camera Ulivo (segnaposto)"><svg
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <div class="gallery" role="img" aria-label="Foto Camera Ulivo"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.4">
                 <rect x="3" y="5" width="18" height="14" rx="1" />
                 <circle cx="9" cy="10" r="1.5" />
                 <path d="m3 17 5-5 4 4 3-3 6 5" />
-              </svg><small>Galleria in arrivo</small></div>
+              </svg><small data-i18n="g_soon">Galleria in arrivo</small></div>
             <div class="card-body">
               <h3>Camera Ulivo</h3>
-              <p class="cap">Matrimoniale, 2 ospiti</p>
+              <p class="cap" data-i18n="r1_cap">Matrimoniale, 2 ospiti</p>
               <ul class="tags">
                 <li>Wi-Fi</li>
-                <li>Aria condizionata</li>
-                <li>Bagno privato</li>
-                <li>Mini-frigo</li>
+                <li data-i18n="t_ac">Aria condizionata</li>
+                <li data-i18n="t_bath">Bagno privato</li>
+                <li data-i18n="t_fridge">Mini-frigo</li>
               </ul>
-              <a class="btn btn-line" href="#contatti" data-room="Camera Ulivo">Richiedi Info per questa Camera</a>
+              <a class="btn btn-line" href="#contatti" data-room="Camera Ulivo" data-i18n="r_btn">Richiedi Info per
+                questa Camera</a>
             </div>
           </article>
           <article class="card rv">
-            <div class="gallery" role="img" aria-label="Galleria fotografica Camera Mandorlo (segnaposto)"><svg
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <div class="gallery" role="img" aria-label="Foto Camera Mandorlo"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.4">
                 <rect x="3" y="5" width="18" height="14" rx="1" />
                 <circle cx="9" cy="10" r="1.5" />
                 <path d="m3 17 5-5 4 4 3-3 6 5" />
-              </svg><small>Galleria in arrivo</small></div>
+              </svg><small data-i18n="g_soon">Galleria in arrivo</small></div>
             <div class="card-body">
               <h3>Camera Mandorlo</h3>
-              <p class="cap">Doppia o due letti, 2 ospiti</p>
+              <p class="cap" data-i18n="r2_cap">Doppia o due letti, 2 ospiti</p>
               <ul class="tags">
                 <li>Wi-Fi</li>
-                <li>Aria condizionata</li>
-                <li>Bagno privato</li>
-                <li>Scrivania</li>
+                <li data-i18n="t_ac">Aria condizionata</li>
+                <li data-i18n="t_bath">Bagno privato</li>
+                <li data-i18n="t_desk">Scrivania</li>
               </ul>
-              <a class="btn btn-line" href="#contatti" data-room="Camera Mandorlo">Richiedi Info per questa Camera</a>
+              <a class="btn btn-line" href="#contatti" data-room="Camera Mandorlo" data-i18n="r_btn">Richiedi Info per
+                questa Camera</a>
             </div>
           </article>
           <article class="card rv">
-            <div class="gallery" role="img" aria-label="Galleria fotografica Camera Famiglia (segnaposto)"><svg
-                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <div class="gallery" role="img" aria-label="Foto Camera Famiglia"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="1.4">
                 <rect x="3" y="5" width="18" height="14" rx="1" />
                 <circle cx="9" cy="10" r="1.5" />
                 <path d="m3 17 5-5 4 4 3-3 6 5" />
-              </svg><small>Galleria in arrivo</small></div>
+              </svg><small data-i18n="g_soon">Galleria in arrivo</small></div>
             <div class="card-body">
               <h3>Camera Famiglia</h3>
-              <p class="cap">Fino a 4 ospiti</p>
+              <p class="cap" data-i18n="r3_cap">Fino a 4 ospiti</p>
               <ul class="tags">
                 <li>Wi-Fi</li>
-                <li>Aria condizionata</li>
-                <li>Bagno privato</li>
-                <li>Mini-frigo</li>
-                <li>Culla su richiesta</li>
+                <li data-i18n="t_ac">Aria condizionata</li>
+                <li data-i18n="t_bath">Bagno privato</li>
+                <li data-i18n="t_fridge">Mini-frigo</li>
+                <li data-i18n="t_crib">Culla su richiesta</li>
               </ul>
-              <a class="btn btn-line" href="#contatti" data-room="Camera Famiglia">Richiedi Info per questa Camera</a>
+              <a class="btn btn-line" href="#contatti" data-room="Camera Famiglia" data-i18n="r_btn">Richiedi Info per
+                questa Camera</a>
             </div>
           </article>
         </div>
@@ -152,24 +164,27 @@
 
     <section class="services" id="servizi" aria-labelledby="h-svc">
       <div class="wrap">
-        <h2 id="h-svc">Cosa trovi durante il soggiorno</h2>
-        <p class="lead">Poche cose, fatte con attenzione.</p>
+        <h2 id="h-svc" data-i18n="s_h">Cosa trovi durante il soggiorno</h2>
+        <p class="lead" data-i18n="s_lead">Poche cose, fatte con attenzione.</p>
         <div class="svc">
           <article class="rv">
-            <h3>Accoglienza di persona</h3>
-            <p>Check-in flessibile, indicazioni su misura e un consiglio onesto su dove andare ogni giorno.</p>
+            <h3 data-i18n="s1h">Accoglienza di persona</h3>
+            <p data-i18n="s1p">Check-in flessibile, indicazioni su misura e un consiglio onesto su dove andare ogni
+              giorno.</p>
           </article>
           <article class="rv">
-            <h3>Colazione del territorio</h3>
-            <p>Focaccia, taralli, frutta di stagione, caffè e dolci di forno locale.</p>
+            <h3 data-i18n="s2h">Colazione del territorio</h3>
+            <p data-i18n="s2p">Focaccia, taralli, frutta di stagione, caffè e dolci di forno locale.</p>
           </article>
           <article class="rv">
-            <h3>Riposo vero</h3>
-            <p>Camere silenziose, biancheria di qualità, aria condizionata e oscuranti per dormire bene.</p>
+            <h3 data-i18n="s3h">Riposo vero</h3>
+            <p data-i18n="s3p">Camere silenziose, biancheria di qualità, aria condizionata e oscuranti per dormire bene.
+            </p>
           </article>
           <article class="rv">
-            <h3>Comodità incluse</h3>
-            <p>Wi-Fi veloce, parcheggio, bagno privato, set cortesia e supporto per bagagli e transfer.</p>
+            <h3 data-i18n="s4h">Comodità incluse</h3>
+            <p data-i18n="s4p">Wi-Fi veloce, parcheggio, bagno privato, set cortesia e supporto per bagagli e transfer.
+            </p>
           </article>
         </div>
       </div>
@@ -177,55 +192,113 @@
 
     <section id="dintorni" aria-labelledby="h-near">
       <div class="wrap">
-        <h2 id="h-near">Soggiorno vicino Bari, nel cuore della Puglia</h2>
-        <p>Bitritto è un borgo tranquillo con centro storico e campagna di ulivi, ben collegato a Bari e alla costa.
-          Tempi indicativi in auto.</p>
+        <h2 id="h-near" data-i18n="n_h">Soggiorno vicino Bari, nel cuore della Puglia</h2>
+        <p data-i18n="n_p">Bitritto è un borgo tranquillo con centro storico e campagna di ulivi, ben collegato a Bari e
+          alla costa. Tempi indicativi in auto.</p>
         <div class="dist">
           <ul>
-            <li><span>Aeroporto di Bari-Palese</span><b>20 min</b></li>
-            <li><span>Stazione di Bari Centrale</span><b>20 min</b></li>
-            <li><span>Bari Vecchia e lungomare</span><b>25 min</b></li>
-            <li><span>Mare (Torre a Mare)</span><b>20 min</b></li>
+            <li><span data-i18n="d1">Aeroporto di Bari-Palese</span><b>20 min</b></li>
+            <li><span data-i18n="d2">Stazione di Bari Centrale</span><b>20 min</b></li>
+            <li><span data-i18n="d3">Bari Vecchia e lungomare</span><b>25 min</b></li>
+            <li><span data-i18n="d4">Mare (Torre a Mare)</span><b>20 min</b></li>
             <li><span>Alberobello</span><b>50 min</b></li>
             <li><span>Polignano a Mare</span><b>40 min</b></li>
           </ul>
           <div class="map">
-            <iframe title="Mappa di Bitritto" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            <iframe title="Mappa / Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
               src="https://www.openstreetmap.org/export/embed.html?bbox=16.88%2C41.01%2C16.97%2C41.07&amp;layer=mapnik"></iframe>
-            <a href="https://www.google.com/maps/search/?api=1&query=Bitritto+BA" target="_blank" rel="noopener">Apri
-              l'itinerario in Google Maps</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=Bitritto+BA" target="_blank"
+              rel="noopener noreferrer" data-i18n="map_l">Apri l'itinerario in Google Maps</a>
           </div>
         </div>
-        <div class="places">
-          <div class="rv">
-            <h3>Bari</h3>
-            <p>Basilica di San Nicola, Strada Arco Basso, il Teatro Petruzzelli e il pesce crudo sul lungomare.</p>
-          </div>
-          <div class="rv">
-            <h3>Bitritto</h3>
-            <p>Il centro storico, la chiesa matrice e la tradizione dell'olio e delle mandorle.</p>
-          </div>
-          <div class="rv">
-            <h3>Valle d'Itria e costa</h3>
-            <p>Trulli di Alberobello, grotte di Castellana e le calette di Polignano e Monopoli.</p>
-          </div>
+
+        <div class="guide">
+          <h2 data-i18n="g_h">Miniguida locale</h2>
+          <p data-i18n="g_p" style="margin-bottom:1.5rem">Tre posti, tre modi di passare la giornata. Sul posto ti diamo
+            indirizzi aggiornati e orari.</p>
+          <details>
+            <summary data-i18n="gu1s">Bitritto: mangiare e passeggiare</summary>
+            <div class="inner">
+              <p data-i18n="gu1a"><strong>Da fare.</strong> Passeggiata nel centro storico al tramonto, poi un giro tra
+                gli uliveti intorno al paese. Il fine settimana la vita si sposta in piazza.</p>
+              <p data-i18n="gu1b"><strong>Da mangiare.</strong> Orecchiette fatte a mano, focaccia barese appena
+                sfornata, verdure e olio del posto. Chiedici la trattoria o il forno che preferiamo.</p>
+            </div>
+          </details>
+          <details>
+            <summary data-i18n="gu2s">Bari Vecchia: una mattina a piedi</summary>
+            <div class="inner">
+              <p data-i18n="gu2a"><strong>Come arrivare.</strong> In auto circa 25 minuti; in centro conviene
+                parcheggiare fuori dalla ZTL e proseguire a piedi. Per treno o bus controlla gli orari aggiornati: ti
+                aiutiamo noi.</p>
+              <p data-i18n="gu2b"><strong>Da vedere.</strong> Basilica di San Nicola, Strada delle Orecchiette, Castello
+                Svevo e il lungomare. Meglio arrivare presto, prima del caldo e dei gruppi.</p>
+            </div>
+          </details>
+          <details>
+            <summary data-i18n="gu3s">Polignano a Mare: mezza giornata di costa</summary>
+            <div class="inner">
+              <p data-i18n="gu3a"><strong>Come arrivare.</strong> In auto circa 40 minuti. In estate parti la mattina
+                presto per trovare parcheggio e mare tranquillo.</p>
+              <p data-i18n="gu3b"><strong>Da vedere.</strong> Il centro storico affacciato sul mare, Lama Monachile e i
+                belvedere sulla scogliera. Se hai tempo, prosegui verso Monopoli.</p>
+            </div>
+          </details>
         </div>
       </div>
     </section>
 
-    <section class="contact" id="contatti" aria-labelledby="h-contact">
+    <section class="reviews" id="recensioni" aria-labelledby="h-rev">
       <div class="wrap">
-        <h2 id="h-contact">Prenota direttamente, senza commissioni</h2>
-        <p>Inviaci le date: rispondiamo di solito entro poche ore.</p>
+        <h2 id="h-rev" data-i18n="rv_h">Cosa dicono gli ospiti</h2>
+        <p data-i18n="rv_p">Parole di chi ha già dormito qui, dai portali dove hanno lasciato la loro recensione.</p>
+        <div class="quotes">
+          <blockquote class="rv"><span data-i18n="rv1t">«Inserisci qui una recensione reale di un
+              ospite.»</span><cite>Nome / Name · Booking.com</cite></blockquote>
+          <blockquote class="rv"><span data-i18n="rv1t">«Inserisci qui una recensione reale di un
+              ospite.»</span><cite>Nome / Name · Airbnb</cite></blockquote>
+          <blockquote class="rv"><span data-i18n="rv1t">«Inserisci qui una recensione reale di un
+              ospite.»</span><cite>Nome / Name · Google</cite></blockquote>
+        </div>
+        <div class="rv-links">
+          <a class="btn btn-line" href="https://www.booking.com/" target="_blank" rel="noopener noreferrer"
+            data-i18n="rv_l1">Leggi su Booking.com</a>
+          <a class="btn btn-line" href="https://www.airbnb.it/" target="_blank" rel="noopener noreferrer"
+            data-i18n="rv_l2">Leggi su Airbnb</a>
+          <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&query=Bitritto+BA" target="_blank"
+            rel="noopener noreferrer" data-i18n="rv_l3">Leggi su Google</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contatti" aria-labelledby="h-contact">
+      <div class="wrap">
+        <h2 id="h-contact" data-i18n="ct_h">Prenota direttamente, senza commissioni</h2>
+        <p data-i18n="ct_p">Inviaci le date: rispondiamo di solito entro poche ore.</p>
+        <div class="incentive">
+          <div>
+            <h3 data-i18n="inc_h">Il vantaggio di scriverci direttamente</h3>
+            <p data-i18n="inc_p">Miglior tariffa garantita, check-in flessibile e un assaggio di prodotti locali
+              all'arrivo.</p>
+          </div>
+          <a class="btn btn-primary" id="wa2" href="https://wa.me/390000000000" target="_blank"
+            rel="noopener noreferrer" data-i18n="inc_btn">Scrivici su WhatsApp</a>
+        </div>
         <div class="contact-grid">
           <form id="form" novalidate>
+            <input type="hidden" name="access_key" value="INSERISCI_LA_TUA_ACCESS_KEY">
+            <input type="hidden" name="subject" value="Nuova richiesta dal sito Affittacamere Bitritto">
+            <input type="hidden" name="from_name" value="Sito Affittacamere Bitritto">
+            <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
             <div class="row">
-              <label>Nome<input name="nome" autocomplete="name" required></label>
-              <label>Email<input name="email" type="email" autocomplete="email" required></label>
+              <label><span data-i18n="l_name">Nome</span><input name="nome" autocomplete="name" required></label>
+              <label><span data-i18n="l_email">Email</span><input name="email" type="email" autocomplete="email"
+                  required></label>
             </div>
             <div class="row">
-              <label>Telefono<input name="tel" type="tel" autocomplete="tel"></label>
-              <label>Numero ospiti<select name="ospiti">
+              <label><span data-i18n="l_tel">Telefono</span><input name="telefono" type="tel"
+                  autocomplete="tel"></label>
+              <label><span data-i18n="l_guests">Numero ospiti</span><select name="ospiti">
                   <option>1</option>
                   <option selected>2</option>
                   <option>3</option>
@@ -233,27 +306,28 @@
                 </select></label>
             </div>
             <div class="row">
-              <label>Arrivo<input name="arrivo" type="date"></label>
-              <label>Partenza<input name="partenza" type="date"></label>
+              <label><span data-i18n="l_in">Arrivo</span><input name="arrivo" type="date"></label>
+              <label><span data-i18n="l_out">Partenza</span><input name="partenza" type="date"></label>
             </div>
-            <label>Camera<select name="camera" id="camera">
-                <option value="">Nessuna preferenza</option>
+            <label><span data-i18n="l_room">Camera</span><select name="camera" id="camera">
+                <option value="" data-i18n="o_none">Nessuna preferenza</option>
                 <option>Camera Ulivo</option>
                 <option>Camera Mandorlo</option>
                 <option>Camera Famiglia</option>
               </select></label>
-            <label>Messaggio<textarea name="msg"></textarea></label>
-            <button class="btn btn-primary" type="submit">Invia la richiesta</button>
+            <label><span data-i18n="l_msg">Messaggio</span><textarea name="messaggio"></textarea></label>
+            <button class="btn btn-primary" type="submit" id="send" data-i18n="send">Invia la richiesta</button>
             <p class="status" id="status" role="status" aria-live="polite"></p>
-            <p class="note">Usiamo i tuoi dati solo per risponderti. Il pulsante apre la tua app email con la richiesta
-              già compilata.</p>
+            <p class="note" data-i18n="note">Usiamo i tuoi dati solo per risponderti.</p>
           </form>
           <aside class="hub" aria-labelledby="h-hub">
-            <h3 id="h-hub">Preferisci un portale?</h3>
-            <p>Puoi prenotare anche dai canali ufficiali. Per le tariffe migliori, scrivici direttamente.</p>
-            <a class="btn btn-line" href="https://www.booking.com/" target="_blank" rel="noopener">Prenota su
-              Booking.com</a>
-            <a class="btn btn-line" href="https://www.airbnb.it/" target="_blank" rel="noopener">Prenota su Airbnb</a>
+            <h3 id="h-hub" data-i18n="hub_h">Preferisci un portale?</h3>
+            <p data-i18n="hub_p">Puoi prenotare anche dai canali ufficiali. Per le tariffe migliori, scrivici
+              direttamente.</p>
+            <a class="btn btn-line" href="https://www.booking.com/" target="_blank" rel="noopener noreferrer"
+              data-i18n="hub_b">Prenota su Booking.com</a>
+            <a class="btn btn-line" href="https://www.airbnb.it/" target="_blank" rel="noopener noreferrer"
+              data-i18n="hub_a">Prenota su Airbnb</a>
           </aside>
         </div>
       </div>
@@ -265,38 +339,37 @@
       <div class="fgrid">
         <div>
           <h3>Affittacamere Bitritto</h3>
-          <p>Camere a Bitritto, vicino Bari. Nome provvisorio.</p>
+          <p data-i18n="ft_p">Camere a Bitritto, vicino Bari. Nome provvisorio.</p>
           <p>Ragione sociale · P.IVA 00000000000 · CIN IT000000X000000000</p>
         </div>
         <div>
-          <h3>Contatti</h3>
+          <h3 data-i18n="ft_c">Contatti</h3>
           <a href="tel:+390000000000">+39 000 000 0000</a><br>
           <a href="mailto:info@example.it">info@example.it</a><br>
           <span>Via da definire, 70020 Bitritto (BA)</span>
         </div>
         <div>
-          <h3>Seguici</h3>
-          <a href="https://www.instagram.com/" rel="noopener">Instagram</a><br>
-          <a href="https://www.facebook.com/" rel="noopener">Facebook</a><br>
-          <span><a href="/" hreflang="it" lang="it">IT</a> / <a href="/en/" hreflang="en" lang="en">EN</a></span>
+          <h3 data-i18n="ft_s">Seguici</h3>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a><br>
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
         </div>
       </div>
-      <div class="legal"><span>© <span id="yr">2026</span> Affittacamere Bitritto. Tutti i diritti riservati.</span><a
-          href="#top">Torna su</a></div>
+      <div class="legal"><span>© <span id="yr">2026</span> Affittacamere Bitritto. <span data-i18n="ft_copy">Tutti i
+            diritti riservati.</span></span><a href="#top" data-i18n="ft_top">Torna su</a></div>
     </div>
   </footer>
 
-  <a class="wa" href="https://wa.me/393898873499?text=Buongiorno%2C%20vorrei%20informazioni%20sulle%20camere."
-    target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp">
+  <a class="wa" id="wa" href="https://wa.me/390000000000" target="_blank" rel="noopener noreferrer"
+    aria-label="Scrivici su WhatsApp">
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path
-        d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.300 1.200-1.800 1.200-.5.100-1 .2-3.300-.7-2.800-1.200-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.2.1.400 0 .5l-.4.600c-.1.200-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.200 1 2.100 1.300 2.400 1.500.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l1.900.9c.3.100.5.200.5.300.100.200.100.700-.1 1.300Z" />
+        d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.2 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.8s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.6c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z" />
     </svg>
     <span>WhatsApp</span>
   </a>
 
-  <script src="assets/JS/script.js">
-  </script>
+  <!-- Collegamento al file JavaScript -->
+  <script src="assets/JS/script.js"></script>
 </body>
 
 </html>
