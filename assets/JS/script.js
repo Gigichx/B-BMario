@@ -1,27 +1,27 @@
 (function () {
     /* ---------- Traduzioni EN (l'italiano è il testo già presente nell'HTML) ---------- */
     var EN = {
-        title: "Rooms in Bitritto | Guest house near Bari",
-        desc: "Guest house in Bitritto, minutes from Bari: carefully kept rooms, Apulian breakfast and direct booking with no commission.",
+        title: "Antiqua Domus | Rooms in Bitritto near Bari",
+        desc: "Antiqua Domus: two independent rooms with a kitchenette in a stone-vaulted home in Bitritto, near Bari. Book directly, no commission.",
         n_home: "The house", n_rooms: "Rooms", n_serv: "Services", n_near: "Around us", n_rev: "Reviews", n_book: "Book",
         h1: "A stay with the rhythm of home.",
-        sub: "A guest house in Bitritto, minutes from Bari: the calmest way to be between city, countryside and sea.",
+        sub: "Two independent rooms with a kitchenette in a home of tuff and stone in Bitritto, minutes from Bari.",
         c1: "Discover the Rooms", c2: "Check Availability",
-        id_h: "Apulian hospitality, without the stage set",
-        id_p1: "Here the door opens onto a real home. We welcome you in person, tell you where to eat well in Bitritto and when to leave for Bari to avoid traffic.",
-        id_p2: "The rooms are simple and well kept: cotton sheets, natural light, quiet evenings. The land does the rest, with olive groves, dry-stone walls and bakeries that open at dawn.",
-        f1l: "Location", f1v: "Bitritto, 10 min from Bari", f2l: "Rooms", f2v: "3 room types", f3l: "Breakfast", f3v: "Local products", f4l: "Booking", f4v: "Direct, no commission",
+        id_h: "A home of tuff and living stone",
+        id_p1: "Antiqua Domus was born from the wish to give new life to a home full of charm and tradition, preserving its identity: the tuff vaults and living stone tell the story of the land.",
+        id_p2: "The rooms stay cool in summer and cosy in winter. Mario and Miriana welcome you and help you discover Bitritto, Bari and Apulia as if you were at their home.",
+        f1l: "Location", f1v: "Bitritto, 11 min from Bari Centrale", f2l: "Rooms", f2v: "2 independent rooms", f3l: "Breakfast", f3v: "Self-service in your room", f4l: "Booking", f4v: "Direct, no commission",
         r_h: "Rooms in Bitritto",
-        r_p: "Choose the room that suits your trip and write to us: we reply with availability and our best rate.",
+        r_p: "Two independent rooms, each with a kitchenette and private bathroom. Send us your dates: we reply with availability.",
         g_soon: "Photos coming soon",
-        r1_cap: "Double bed, 2 guests", r2_cap: "Double or twin, 2 guests", r3_cap: "Up to 4 guests",
-        t_ac: "Air conditioning", t_bath: "Private bathroom", t_fridge: "Mini fridge", t_desk: "Desk", t_crib: "Cot on request",
+        r1_cap: "35 m² · up to 4 guests · double bed and sofa bed", r2_cap: "20 m² · 2 guests · French double bed",
+        t_ac: "Air conditioning", t_bath: "Private bathroom", t_fridge: "Fridge", t_kit: "Kitchenette", t_wash: "Washing machine",
         r_btn: "Ask about this Room",
         s_h: "What you find during your stay", s_lead: "A few things, done with care.",
-        s1h: "A personal welcome", s1p: "Flexible check-in, tailored directions and honest advice on where to go each day.",
-        s2h: "Local breakfast", s2p: "Focaccia, taralli, seasonal fruit, coffee and sweets from the local bakery.",
-        s3h: "Real rest", s3p: "Quiet rooms, quality linen, air conditioning and blackout curtains for good sleep.",
-        s4h: "Comforts included", s4p: "Fast Wi-Fi, parking, private bathroom, toiletries and help with luggage and transfers.",
+        s1h: "A personal welcome", s1p: "Check-in from 4 pm, check-out by 10 am, with flexibility if agreed in advance. We reply on WhatsApp from 6 am to 10 pm.",
+        s2h: "Breakfast in your room", s2p: "Coffee machine and, in the fridge, yogurt, milk, cereal and snacks: have it whenever you like. If you prefer a café, there are several just steps away.",
+        s3h: "Like your own home", s3p: "Kitchenette, private bathroom, air conditioning, Wi-Fi and TV in every room. Ulivo also has a washing machine.",
+        s4h: "Parking and clear rules", s4p: "Parking available and, overnight, a private garage to be arranged. Small pets welcome, no smoking. No tourist tax. Transfer on request.",
         n_h: "A stay near Bari, in the heart of Apulia",
         n_p: "Bitritto is a quiet town with an old centre and olive-grove countryside, well connected to Bari and the coast. Approximate travel times by car.",
         d1: "Bari-Palese Airport", d2: "Bari Centrale station", d3: "Bari Vecchia and seafront", d4: "Sea (Torre a Mare)",
@@ -44,7 +44,7 @@
         ct_h: "Book directly, no commission",
         ct_p: "Send us your dates: we usually reply within a few hours.",
         inc_h: "The advantage of writing to us directly",
-        inc_p: "Best rate guaranteed, flexible check-in and a taste of local products on arrival.",
+        inc_p: "Flexible check-in arranged with us and a fixed price all year round, with no seasonal changes.",
         inc_btn: "Write to us on WhatsApp",
         l_name: "Name", l_email: "Email", l_tel: "Phone", l_guests: "Guests", l_in: "Check-in", l_out: "Check-out", l_room: "Room", l_msg: "Message",
         o_none: "No preference", send: "Send request",
@@ -52,7 +52,7 @@
         hub_h: "Prefer a booking platform?",
         hub_p: "You can also book through the official channels. For the best rates, write to us directly.",
         hub_b: "Book on Booking.com", hub_a: "Book on Airbnb",
-        ft_p: "Rooms in Bitritto, near Bari. Working name.", ft_c: "Contact", ft_s: "Follow us", ft_copy: "All rights reserved.", ft_top: "Back to top",
+        ft_p: "Rooms in a traditional home in Bitritto, near Bari.", ft_c: "Contact", ft_s: "Follow us", ft_copy: "All rights reserved.", ft_top: "Back to top",
         m_val: "Enter your name and a valid email so we can reply.",
         m_dates: "The check-out date must be after check-in.",
         m_sending: "Sending…",
@@ -93,7 +93,7 @@
         document.querySelector('.menu-btn').setAttribute('aria-label', t('aria_menu'));
         var wa = document.getElementById('wa');
         wa.setAttribute('aria-label', t('aria_wa'));
-        var url = 'https://wa.me/390000000000?text=' + encodeURIComponent(t('wa_msg'));
+        var url = 'https://wa.me/393898873499?text=' + encodeURIComponent(t('wa_msg'));
         wa.href = url;
         document.getElementById('wa2').href = url;
         document.querySelectorAll('.lang button').forEach(function (b) {
