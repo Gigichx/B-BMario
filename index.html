@@ -291,7 +291,7 @@
             <label><span data-i18n="l_msg">Messaggio</span><textarea name="messaggio"></textarea></label>
             <button class="btn btn-primary" type="submit" id="send" data-i18n="send">Invia la richiesta</button>
             <p class="status" id="status" role="status" aria-live="polite"></p>
-            <p class="note" data-i18n="note">Usiamo i tuoi dati solo per risponderti.</p>
+            <p class="note" data-i18n="note">Usiamo i tuoi dati solo per risponderti. Leggi l'<a href="privacy.html">informativa privacy</a>.</p>
           </form>
           <aside class="hub" aria-labelledby="h-hub">
             <h3 id="h-hub" data-i18n="hub_h">Preferisci un portale?</h3>
@@ -329,7 +329,7 @@
         -->
       </div>
       <div class="legal"><span>© <span id="yr">2026</span> Antiqua Domus. <span data-i18n="ft_copy">Tutti i
-            diritti riservati.</span></span><a href="#top" data-i18n="ft_top">Torna su</a></div>
+            diritti riservati.</span></span><a href="#top" data-i18n="ft_top">Torna su</a><a href="privacy.html" data-i18n="ft_priv">Privacy e cookie</a></div>
     </div>
   </footer>
 
@@ -341,6 +341,11 @@
     </svg>
     <span>WhatsApp</span>
   </a>
+
+  <div class="cookie" id="cookie" role="region" aria-label="Informativa cookie" hidden>
+    <p data-i18n="ck_t">Questo sito non usa cookie di profilazione né analytics: salva la lingua scelta e la presa visione di questo avviso nel tuo browser. <a href="privacy.html">Maggiori informazioni</a></p>
+    <button type="button" class="btn btn-primary" id="cookie-ok" data-i18n="ck_b">Ho capito</button>
+  </div>
 
   <!-- Collegamento al file JavaScript -->
   <script src="assets/JS/script.js"></script>

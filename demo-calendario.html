@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>DEMO calendario | Antiqua Domus</title>
+<style>
+:root{--olive-deep:#283024;--olive:#4F5B43;--terracotta:#A3563C;--sabbia:#DFD0B6;--pietra:#F7F4ED;--serif:Georgia,serif;--sans:Inter,system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+body{font-family:var(--sans);background:var(--pietra);color:var(--olive-deep);padding:1.25rem;line-height:1.5}
+main{max-width:560px;margin:0 auto}
+.demo{background:var(--terracotta);color:#fff;text-align:center;padding:.7rem 1rem;font-weight:600;border-radius:4px;margin-bottom:1.5rem}
+h1{font:400 1.8rem var(--serif);margin-bottom:1rem}
+button{font:inherit;cursor:pointer;color:inherit}
+.tabs{display:flex;gap:.5rem;margin-bottom:1rem}
+.tab{flex:1;min-height:48px;border:1.5px solid var(--olive);background:none;border-radius:4px}
+.tab[aria-pressed=true]{background:var(--olive);color:var(--pietra)}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem}
+.nav button{width:48px;height:48px;border:0;background:none;font-size:1.4rem}
+.nav button:disabled{opacity:.3;cursor:default}
+.nav strong{font:400 1.3rem var(--serif);text-transform:capitalize}
+.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.dow{text-align:center;font-size:.8rem;color:var(--olive);padding:.3rem 0}
+.day{min-height:44px;border:1px solid var(--sabbia);background:#fff;border-radius:4px}
+.day:disabled{background:transparent;border-color:transparent;color:#a39f8c;cursor:not-allowed}
+.day.busy{background:var(--sabbia);text-decoration:line-through;color:var(--olive)}
+.day.range{background:#dfe3d3}
+.day.sel{background:var(--olive);color:var(--pietra);border-color:var(--olive)}
+.legend{display:flex;gap:1rem;flex-wrap:wrap;font-size:.85rem;margin-top:.8rem;color:var(--olive)}
+.legend i{display:inline-block;width:.9rem;height:.9rem;border-radius:3px;vertical-align:-2px;margin-right:.3rem;border:1px solid var(--sabbia)}
+.sum{margin-top:1.25rem;padding:1rem;border:1px solid var(--sabbia);border-radius:4px;background:#fff;min-height:5.5rem}
+.cta{display:flex;min-height:48px;align-items:center;justify-content:center;margin-top:.8rem;background:var(--terracotta);color:#fff;border-radius:4px;text-decoration:none;font-weight:600}
+.cta[aria-disabled=true]{opacity:.4;pointer-events:none}
+</style>
+</head>
+<body>
+<main>
+  <div class="demo">DEMO – le date occupate sono di esempio e non reali</div>
+  <h1>Verifica disponibilità</h1>
+  <div class="tabs" id="tabs">
+    <button class="tab" data-room="Camera Ulivo" aria-pressed="true">Camera Ulivo</button>
+    <button class="tab" data-room="Camera Mandorlo" aria-pressed="false">Camera Mandorlo</button>
+  </div>
+  <div class="nav"><button id="prev" aria-label="Mese precedente">←</button><strong id="month"></strong><button id="next" aria-label="Mese successivo">→</button></div>
+  <div class="grid" id="grid"></div>
+  <div class="legend"><span><i style="background:#fff"></i>Libero</span><span><i style="background:var(--sabbia)"></i>Occupato</span><span><i style="background:var(--olive)"></i>Selezionato</span></div>
+  <div class="sum" id="sum" aria-live="polite"></div>
+  <a class="cta" id="cta" aria-disabled="true" href="#" target="_blank" rel="noopener noreferrer">Richiedi queste date su WhatsApp</a>
+</main>
+<script>
+(function(){
+  var room="Camera Ulivo",view=new Date(),a=null,b=null,msg="";
+  view.setDate(1);
+  var today=new Date();today.setHours(0,0,0,0);
+  var DAY=864e5,M=["domenica"];
+  function iso(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+  function dt(s){return new Date(s+"T00:00:00")}
+  function busy(s){var d=dt(s),n=Math.floor(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())/DAY/3),t=room+n,h=0;for(var i=0;i<t.length;i++)h=(h*31+t.charCodeAt(i))>>>0;return h%100<35}
+  function fmt(s){return dt(s).toLocaleDateString("it-IT",{day:"numeric",month:"long"})}
+  function freeNights(x,y){for(var d=dt(x);iso(d)<y;d.setDate(d.getDate()+1)){if(busy(iso(d)))return false}return true}
+  function render(){
+    document.getElementById("month").textContent=view.toLocaleDateString("it-IT",{month:"long",year:"numeric"});
+    var cur=new Date();cur.setDate(1);cur.setHours(0,0,0,0);
+    document.getElementById("prev").disabled=view<=cur;
+    var g=document.getElementById("grid");g.innerHTML="";
+    ["L","M","M","G","V","S","D"].forEach(function(x){var e=document.createElement("div");e.className="dow";e.textContent=x;g.appendChild(e)});
+    var off=(view.getDay()+6)%7;for(var i=0;i<off;i++)g.appendChild(document.createElement("div"));
+    var n=new Date(view.getFullYear(),view.getMonth()+1,0).getDate();
+    for(var d=1;d<=n;d++){
+      var D=new Date(view.getFullYear(),view.getMonth(),d),s=iso(D),el=document.createElement("button");
+      el.textContent=d;el.className="day";el.type="button";
+      if(D<today){el.disabled=true}
+      else if(busy(s)){el.classList.add("busy");el.disabled=true}
+      if(s===a||s===b)el.classList.add("sel");
+      else if(a&&b&&s>a&&s<b)el.classList.add("range");
+      el.dataset.d=s;g.appendChild(el);
+    }
+    var sum=document.getElementById("sum"),cta=document.getElementById("cta");
+    if(a&&b){
+      var nn=Math.round((dt(b)-dt(a))/DAY);
+      sum.innerHTML="<strong>"+room+"</strong><br>Dal "+fmt(a)+" al "+fmt(b)+" · "+nn+(nn===1?" notte":" notti");
+      cta.href="https://wa.me/393898873499?text="+encodeURIComponent("Buongiorno, vorrei prenotare "+room+" dal "+fmt(a)+" al "+fmt(b)+" ("+nn+(nn===1?" notte":" notti")+").");
+      cta.setAttribute("aria-disabled","false");
+    }else{
+      sum.textContent=msg||(a?"Arrivo: "+fmt(a)+". Ora scegli il giorno di partenza.":"Scegli il giorno di arrivo.");
+      cta.setAttribute("aria-disabled","true");cta.href="#";
+    }
+  }
+  document.getElementById("grid").addEventListener("click",function(e){
+    var s=e.target.dataset&&e.target.dataset.d;if(!s)return;
+    msg="";
+    if(!a||b){a=s;b=null}
+    else if(s<=a){a=s}
+    else if(freeNights(a,s)){b=s}
+    else{a=s;msg="In quelle date c'è almeno una notte occupata. Scegli un altro periodo."}
+    render();
+  });
+  document.getElementById("tabs").addEventListener("click",function(e){
+    if(!e.target.dataset.room)return;room=e.target.dataset.room;a=b=null;msg="";
+    [].forEach.call(document.querySelectorAll(".tab"),function(t){t.setAttribute("aria-pressed",t===e.target)});render();
+  });
+  document.getElementById("prev").onclick=function(){view.setMonth(view.getMonth()-1);render()};
+  document.getElementById("next").onclick=function(){view.setMonth(view.getMonth()+1);render()};
+  render();
+})();
+</script>
+</body>
+</html>

@@ -49,11 +49,13 @@
         inc_btn: "Write to us on WhatsApp",
         l_name: "Name", l_email: "Email", l_tel: "Phone", l_guests: "Guests", l_in: "Check-in", l_out: "Check-out", l_room: "Room", l_msg: "Message",
         o_none: "No preference", send: "Send request",
-        note: "We use your data only to reply to you.",
+        note: 'We use your data only to reply to you. Read the <a href="privacy.html">privacy notice</a>.',
         hub_h: "Prefer a booking platform?",
         hub_p: "You can also book through the official channels. For the best rates, write to us directly.",
         hub_b: "Book on Booking.com", hub_a: "Book on Airbnb",
         ft_p: "Rooms in a traditional home in Bitritto, near Bari.", ft_c: "Contact", ft_s: "Follow us", ft_copy: "All rights reserved.", ft_top: "Back to top",
+        ft_priv: "Privacy and cookies", ck_b: "Got it",
+        ck_t: 'This site uses no profiling cookies or analytics: it saves your chosen language and that you have read this notice in your browser. <a href="privacy.html">More information</a>',
         m_val: "Enter your name and a valid email so we can reply.",
         m_dates: "The check-out date must be after check-in.",
         m_sending: "Sending…",
@@ -196,4 +198,10 @@
     });
 
     document.getElementById('yr').textContent = new Date().getFullYear();
+    var ck = document.getElementById('cookie');
+    try { if (!localStorage.getItem('ck')) ck.hidden = false; } catch (e) { ck.hidden = false; }
+    document.getElementById('cookie-ok').addEventListener('click', function () {
+        ck.hidden = true;
+        try { localStorage.setItem('ck', '1'); } catch (e) { }
+    });
 })();

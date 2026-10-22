@@ -838,3 +838,9 @@ footer a:hover {
         transform: none
     }
 }
+
+/* Avviso cookie */
+.cookie{position:fixed;left:max(1rem,env(safe-area-inset-left));right:1rem;bottom:calc(5.5rem + env(safe-area-inset-bottom,0px));z-index:70;display:flex;flex-wrap:wrap;gap:.8rem 1rem;align-items:center;background:var(--olive-deep);color:var(--pietra);padding:1rem 1.2rem;border-radius:var(--radius);box-shadow:0 6px 20px rgba(0,0,0,.3);font-size:.9rem;max-width:640px}
+.cookie[hidden]{display:none}
+.cookie p{flex:1 1 260px;max-width:none}
+.cookie a{color:var(--sabbia)}
