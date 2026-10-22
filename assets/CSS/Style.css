@@ -844,3 +844,8 @@ footer a:hover {
 .cookie[hidden]{display:none}
 .cookie p{flex:1 1 260px;max-width:none}
 .cookie a{color:var(--sabbia)}
+
+/* Galleria scorrevole */
+.gallery{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;align-items:center;justify-content:center}
+.gallery::-webkit-scrollbar{display:none}
+.gallery img{flex:0 0 92%;width:92%;height:100%;object-fit:cover;scroll-snap-align:center}
