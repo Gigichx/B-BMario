@@ -199,9 +199,14 @@
 
     document.getElementById('yr').textContent = new Date().getFullYear();
     var ck = document.getElementById('cookie');
+    function ckSpace() {
+        document.documentElement.style.setProperty('--ck-h', ck.hidden ? '0px' : (ck.offsetHeight + 12) + 'px');
+    }
     try { if (!localStorage.getItem('ck')) ck.hidden = false; } catch (e) { ck.hidden = false; }
+    ckSpace();
+    if (window.ResizeObserver) new ResizeObserver(ckSpace).observe(ck);
     document.getElementById('cookie-ok').addEventListener('click', function () {
-        ck.hidden = true;
+        ck.hidden = true; ckSpace();
         try { localStorage.setItem('ck', '1'); } catch (e) { }
     });
 })();

@@ -840,7 +840,7 @@ footer a:hover {
 }
 
 /* Avviso cookie */
-.cookie{position:fixed;left:max(1rem,env(safe-area-inset-left));right:1rem;bottom:calc(5.5rem + env(safe-area-inset-bottom,0px));z-index:70;display:flex;flex-wrap:wrap;gap:.8rem 1rem;align-items:center;background:var(--olive-deep);color:var(--pietra);padding:1rem 1.2rem;border-radius:var(--radius);box-shadow:0 6px 20px rgba(0,0,0,.3);font-size:.9rem;max-width:640px}
+.cookie{position:fixed;left:max(1rem,env(safe-area-inset-left));right:1rem;bottom:max(1rem,env(safe-area-inset-bottom));z-index:70;display:flex;flex-wrap:wrap;gap:.8rem 1rem;align-items:center;background:var(--olive-deep);color:var(--pietra);padding:1rem 1.2rem;border-radius:var(--radius);box-shadow:0 6px 20px rgba(0,0,0,.3);font-size:.9rem;max-width:640px}
 .cookie[hidden]{display:none}
 .cookie p{flex:1 1 260px;max-width:none}
 .cookie a{color:var(--sabbia)}
@@ -849,3 +849,16 @@ footer a:hover {
 .gallery{display:flex;gap:6px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;align-items:center;justify-content:center}
 .gallery::-webkit-scrollbar{display:none}
 .gallery img{flex:0 0 92%;width:92%;height:100%;object-fit:cover;scroll-snap-align:center}
+
+/* Fix mobile: niente scroll orizzontale */
+html{overflow-x:hidden;overflow-x:clip}
+body{max-width:100%;overscroll-behavior-x:none}
+.row>*,label{min-width:0}
+input[type="date"]{-webkit-appearance:none;appearance:none;display:block;width:100%;min-width:0;max-width:100%}
+iframe,img{max-width:100%}
+
+/* Riquadro portali: si ferma alla fine dei pulsanti */
+.hub{align-self:start}
+
+/* WhatsApp sopra, avviso cookie sotto */
+.wa{bottom:calc(max(1rem,env(safe-area-inset-bottom)) + var(--ck-h,0px))}
