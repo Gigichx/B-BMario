@@ -12,6 +12,7 @@
   <meta property="og:description" content="Due camere indipendenti con angolo cottura in una dimora con volte in tufo a Bitritto, vicino Bari. Prenotazione diretta.">
   <meta property="og:locale" content="it_IT">
   <meta name="theme-color" content="#283024">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <!-- Collegamento al file CSS -->
   <link rel="stylesheet" href="assets/CSS/Style.css">
@@ -29,10 +30,17 @@
    "address":{"@type":"PostalAddress","streetAddress":"Via da definire","addressLocality":"Bitritto","addressRegion":"BA","postalCode":"70020","addressCountry":"IT"},
    "geo":{"@type":"GeoCoordinates","latitude":41.0388,"longitude":16.9242},
    "availableLanguage":["it","en"],
+   "checkinTime":"16:00",
+   "checkoutTime":"10:00",
+   "numberOfRooms":2,
+   "petsAllowed":"Solo animali di piccola taglia",
+   "smokingAllowed":false,
    "amenityFeature":[
     {"@type":"LocationFeatureSpecification","name":"Wi-Fi gratuito","value":true},
     {"@type":"LocationFeatureSpecification","name":"Aria condizionata","value":true},
-    {"@type":"LocationFeatureSpecification","name":"Bagno privato","value":true}]
+    {"@type":"LocationFeatureSpecification","name":"Bagno privato","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Angolo cottura","value":true},
+    {"@type":"LocationFeatureSpecification","name":"TV","value":true}]
   }
   </script>
 </head>
@@ -64,6 +72,7 @@
 
   <main>
     <section class="hero" aria-labelledby="h1">
+      <canvas class="hero-fx" aria-hidden="true"></canvas>
       <div class="wrap">
         <h1 id="h1" data-i18n="h1">Un soggiorno che ha il ritmo della casa.</h1>
         <p class="sub" data-i18n="sub">Due camere indipendenti con angolo cottura in una dimora di tufo e pietra viva a

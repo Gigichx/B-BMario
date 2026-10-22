@@ -862,3 +862,9 @@ iframe,img{max-width:100%}
 
 /* WhatsApp sopra, avviso cookie sotto */
 .wa{bottom:calc(max(1rem,env(safe-area-inset-bottom)) + var(--ck-h,0px))}
+
+/* Pulviscolo nell'hero */
+.hero{position:relative;overflow:hidden}
+.hero-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.hero>.wrap{position:relative;z-index:1}
+@media(min-width:700px){.hero{padding-bottom:9rem}}
