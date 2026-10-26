@@ -10,20 +10,23 @@
         id_h: "A home of tuff and living stone",
         id_p1: "Antiqua Domus was born from the wish to give new life to a home full of charm and tradition, preserving its identity: the tuff vaults and living stone tell the story of the land.",
         id_p2: "The rooms stay cool in summer and cosy in winter. Mario and Miriana welcome you and help you discover Bitritto, Bari and Apulia as if you were at their home.",
-        f1l: "Location", f1v: "Bitritto, 11 min from Bari Centrale", f2l: "Rooms", f2v: "2 independent rooms", f3l: "Breakfast", f3v: "Self-service in your room", f4l: "Booking", f4v: "Direct, no commission",
+        f1l: "Location", f1v: "Bitritto, 11 min from Bari Centrale", f2l: "Rooms", f2v: "2 independent rooms", f3l: "Breakfast", f3v: "Breakfast included, self-service in your room", f4l: "Booking", f4v: "Direct, no commission",
         r_h: "Rooms in Bitritto",
         r_p: "Two independent rooms, each with a kitchenette and private bathroom. Send us your dates: we reply with availability.",
         g_soon: "Photos coming soon",
         r1_cap: "35 m² · up to 4 guests · double bed and sofa bed", r2_cap: "20 m² · 2 guests · French double bed",
+        r1_price: "From €60 per night",
+        r2_price: "From €50 per night",
         t_ac: "Air conditioning", t_bath: "Private bathroom", t_fridge: "Fridge", t_kit: "Kitchenette", t_wash: "Washing machine",
         r_btn: "Ask about this Room",
         s_h: "What you find during your stay", s_lead: "A few things, done with care.",
-        s1h: "A personal welcome", s1p: "Check-in from 4 pm, check-out by 10 am, with flexibility if agreed in advance. We reply on WhatsApp from 6 am to 10 pm.",
-        s2h: "Breakfast in your room", s2p: "Coffee machine and, in the fridge, yogurt, milk, cereal and snacks: have it whenever you like. If you prefer a café, there are several just steps away.",
+        s1h: "Arrival and property access", s1p: "Check-in from 3 pm and check-out by 10 am. Access instructions are provided before arrival. Different arrival times may be arranged, subject to availability.",
+        s2h: "Breakfast in your room", s2p: "Breakfast is included in the room rate and can be prepared independently in your room. A coffee machine, yogurt, milk, cereals and snacks are provided.",
         s3h: "Like your own home", s3p: "Kitchenette, private bathroom, air conditioning, Wi-Fi and TV in every room. Ulivo also has a washing machine.",
-        s4h: "Parking and clear rules", s4p: "Parking available and, overnight, a private garage to be arranged. Small pets welcome, no smoking. No tourist tax. Transfer on request.",
+        s4h: "Garage and house rules", s4p: "Private garage approximately 270 metres from the property, a 4-minute walk away, on request and subject to availability. No pets allowed. No smoking. Airport and station transfers can be arranged by phone, subject to availability.",
         n_h: "A stay near Bari, in the heart of Apulia",
         n_p: "Bitritto is a quiet town with an old centre and olive-grove countryside, well connected to Bari and the coast. Approximate travel times by car.",
+        transport_p: "For guests travelling without a car, the bus stop is approximately 10 metres from the property and the railway station is approximately 550 metres away. Connections to Bari are available according to the public transport timetables.",
         d1: "Bari-Palese Airport", d2: "Bari Centrale station", d3: "Bari Vecchia and seafront", d4: "Sea",
         map_l: "Open directions in Google Maps",
         g_h: "Local mini-guide",
@@ -45,19 +48,20 @@
         ct_h: "Book directly, no commission",
         ct_p: "Send us your dates: we usually reply within a few hours.",
         inc_h: "The advantage of writing to us directly",
-        inc_p: "Flexible check-in arranged with us and a fixed price all year round, with no seasonal changes.",
+        inc_p: "When booking directly, you can benefit from a dedicated rate, fixed prices throughout the year and the possibility of arranging a different arrival time, subject to availability.",
         inc_btn: "Write to us on WhatsApp",
         l_name: "Name", l_email: "Email", l_tel: "Phone", l_guests: "Guests", l_in: "Check-in", l_out: "Check-out", l_room: "Room", l_msg: "Message",
         o_none: "No preference", send: "Send request",
         note: 'We use your data only to reply to you. Read the <a href="privacy.html">privacy notice</a>.',
-        hub_h: "Prefer a booking platform?",
-        hub_p: "You can also book through the official channels. For the best rates, write to us directly.",
+        hub_h: "Request a quote",
+        hub_p: "Tell us your travel dates. We will reply with availability and a dedicated rate.",
         hub_b: "Book on Booking.com", hub_a: "Book on Airbnb",
         ft_p: "Rooms in a traditional home in Bitritto, near Bari.", ft_c: "Contact", ft_s: "Follow us", ft_copy: "All rights reserved.", ft_top: "Back to top",
         ft_priv: "Privacy and cookies", ck_b: "Got it",
         ck_t: 'This site uses no profiling cookies or analytics: it saves your chosen language and that you have read this notice in your browser. <a href="privacy.html">More information</a>',
         m_val: "Enter your name and a valid email so we can reply.",
         m_dates: "The check-out date must be after check-in.",
+        m_required_dates: "Please select your arrival and departure dates.",
         m_sending: "Sending…",
         m_ok: "Thank you! Your request has been sent. We will reply shortly.",
         m_err: "Something went wrong. Please write to us on WhatsApp or by email.",
@@ -68,6 +72,7 @@
     var IT = {
         m_val: "Inserisci nome ed email valida per poterti rispondere.",
         m_dates: "La data di partenza deve essere successiva all'arrivo.",
+        m_required_dates: "Seleziona le date di arrivo e partenza.",
         m_sending: "Invio in corso…",
         m_ok: "Grazie! La tua richiesta è stata inviata. Ti rispondiamo a breve.",
         m_err: "Qualcosa non ha funzionato. Scrivici su WhatsApp o via email.",
@@ -168,7 +173,11 @@
             say('m_val', true);
             return;
         }
-        if (f.arrivo.value && f.partenza.value && f.partenza.value <= f.arrivo.value) {
+        if (!f.arrivo.value || !f.partenza.value) {
+            say('m_required_dates', true);
+            return;
+        }
+        if (f.partenza.value <= f.arrivo.value) {
             say('m_dates', true);
             return;
         }

@@ -405,6 +405,13 @@ nav ul.open a {
     font-size: .95rem
 }
 
+.room-price {
+    color: var(--terracotta);
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
 .tags {
     display: flex;
     flex-wrap: wrap;
