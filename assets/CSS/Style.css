@@ -102,12 +102,12 @@ section {
 }
 
 .btn-primary {
-    background: var(--terracotta);
-    color: #fff
+    background: #A3563C;
+    color: #fff;
 }
 
 .btn-primary:hover {
-    background: #a3563c
+    background: #89462E;
 }
 
 .btn-ghost {

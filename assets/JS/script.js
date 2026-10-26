@@ -9,7 +9,7 @@
         c1: "Discover the Rooms", c2: "Check Availability",
         id_h: "A home of tuff and living stone",
         id_p1: "Antiqua Domus was born from the wish to give new life to a home full of charm and tradition, preserving its identity: the tuff vaults and living stone tell the story of the land.",
-        id_p2: "The rooms stay cool in summer and cosy in winter. Mario and Miriana welcome you and help you discover Bitritto, Bari and Apulia as if you were at their home.",
+        id_p2: "The rooms stay cool in summer and cosy in winter. Mario and Miriana are happy to share tips on discovering Bitritto, Bari and Apulia before and during your stay.",
         f1l: "Location", f1v: "Bitritto, 11 min from Bari Centrale", f2l: "Rooms", f2v: "2 independent rooms", f3l: "Breakfast", f3v: "Breakfast included, self-service in your room", f4l: "Booking", f4v: "Direct, no commission",
         r_h: "Rooms in Bitritto",
         r_p: "Two independent rooms, each with a kitchenette and private bathroom. Send us your dates: we reply with availability.",
@@ -62,6 +62,7 @@
         m_val: "Enter your name and a valid email so we can reply.",
         m_dates: "The check-out date must be after check-in.",
         m_required_dates: "Please select your arrival and departure dates.",
+        m_past: "The arrival date cannot be in the past.",
         m_sending: "Sending…",
         m_ok: "Thank you! Your request has been sent. We will reply shortly.",
         m_err: "Something went wrong. Please write to us on WhatsApp or by email.",
@@ -73,6 +74,7 @@
         m_val: "Inserisci nome ed email valida per poterti rispondere.",
         m_dates: "La data di partenza deve essere successiva all'arrivo.",
         m_required_dates: "Seleziona le date di arrivo e partenza.",
+        m_past: "La data di arrivo non può essere nel passato.",
         m_sending: "Invio in corso…",
         m_ok: "Grazie! La tua richiesta è stata inviata. Ti rispondiamo a breve.",
         m_err: "Qualcosa non ha funzionato. Scrivici su WhatsApp o via email.",
@@ -159,8 +161,42 @@
 
     /* ---------- Form Web3Forms (AJAX) ---------- */
     var f = document.getElementById('form'), st = document.getElementById('status'), btn = document.getElementById('send');
-    f.arrivo.min = new Date().toISOString().split('T')[0];
-    f.arrivo.addEventListener('change', function () { f.partenza.min = f.arrivo.value });
+
+    function formatLocalDate(date) {
+        var year = date.getFullYear();
+        var month = String(date.getMonth() + 1).padStart(2, '0');
+        var day = String(date.getDate()).padStart(2, '0');
+
+        return year + '-' + month + '-' + day;
+    }
+
+    var today = formatLocalDate(new Date());
+
+    f.arrivo.min = today;
+    f.partenza.min = today;
+
+    f.arrivo.addEventListener('change', function () {
+        if (!f.arrivo.value) {
+            f.partenza.min = formatLocalDate(new Date());
+            return;
+        }
+
+        var parts = f.arrivo.value.split('-').map(Number);
+        var nextDay = new Date(
+            parts[0],
+            parts[1] - 1,
+            parts[2] + 1
+        );
+
+        f.partenza.min = formatLocalDate(nextDay);
+
+        if (
+            f.partenza.value &&
+            f.partenza.value < f.partenza.min
+        ) {
+            f.partenza.value = '';
+        }
+    });
 
     function say(k, err) {
         st.textContent = t(k);
@@ -171,6 +207,10 @@
         e.preventDefault();
         if (!f.nome.value.trim() || !/^\S+@\S+\.\S+$/.test(f.email.value)) {
             say('m_val', true);
+            return;
+        }
+        if (f.arrivo.value < formatLocalDate(new Date())) {
+            say('m_past', true);
             return;
         }
         if (!f.arrivo.value || !f.partenza.value) {
