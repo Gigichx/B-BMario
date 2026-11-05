@@ -3,10 +3,11 @@
     var EN = {
         title: "Antiqua Domus | Rooms in Bitritto near Bari",
         desc: "Antiqua Domus: two independent rooms with a kitchenette in a stone-vaulted home in Bitritto, near Bari. Book directly, no commission.",
+        skip: "Skip to content",
         n_home: "The house", n_rooms: "Rooms", n_serv: "Services", n_near: "Around us", n_rev: "Reviews", n_book: "Book",
         h1: "A stay with the rhythm of home.",
         sub: "Two independent rooms with a kitchenette in a home of tuff and stone in Bitritto, minutes from Bari.",
-        c1: "Discover the Rooms", c2: "Check Availability",
+        c1: "Discover the Rooms", c2: "Request Availability",
         id_h: "A home of tuff and living stone",
         id_p1: "Antiqua Domus was born from the wish to give new life to a home full of charm and tradition, preserving its identity: the tuff vaults and living stone tell the story of the land.",
         id_p2: "The rooms stay cool in summer and cosy in winter. Mario and Miriana are happy to share tips on discovering Bitritto, Bari and Apulia before and during your stay.",
@@ -15,8 +16,8 @@
         r_p: "Two independent rooms, each with a kitchenette and private bathroom. Send us your dates: we reply with availability.",
         g_soon: "Photos coming soon",
         r1_cap: "35 m² · up to 4 guests · double bed and sofa bed", r2_cap: "20 m² · 2 guests · French double bed",
-        r1_price: "From €60 per night",
-        r2_price: "From €50 per night",
+        r1_price: "From €60 per night for 1 guest · €70 for 2 · €80 for 3 · €90 for 4",
+        r2_price: "From €50 per night for 1 guest · €55 for 2",
         t_ac: "Air conditioning", t_bath: "Private bathroom", t_fridge: "Fridge", t_kit: "Kitchenette", t_wash: "Washing machine",
         r_btn: "Ask about this Room",
         s_h: "What you find during your stay", s_lead: "A few things, done with care.",
@@ -52,13 +53,13 @@
         inc_btn: "Write to us on WhatsApp",
         l_name: "Name", l_email: "Email", l_tel: "Phone", l_guests: "Guests", l_in: "Check-in", l_out: "Check-out", l_room: "Room", l_msg: "Message",
         o_none: "No preference", send: "Send request",
-        note: 'We use your data only to reply to you. Read the <a href="privacy.html">privacy notice</a>.',
+        note: 'We use your data only to reply to you. This form sends a request: the booking is confirmed only after we agree together. Please do not write identity document details in the message. Read the <a href="privacy.html">privacy notice</a>.',
         hub_h: "Request a quote",
         hub_p: "Tell us your travel dates. We will reply with availability and a dedicated rate.",
         hub_b: "Book on Booking.com", hub_a: "Book on Airbnb",
         ft_p: "Rooms in a traditional home in Bitritto, near Bari.", ft_c: "Contact", ft_s: "Follow us", ft_copy: "All rights reserved.", ft_top: "Back to top",
         ft_priv: "Privacy and cookies", ck_b: "Got it",
-        ck_t: 'This site uses no profiling cookies or analytics: it saves your chosen language and that you have read this notice in your browser. <a href="privacy.html">More information</a>',
+        ck_t: 'This site uses no profiling cookies or analytics of its own: it saves your chosen language and that you have read this notice in your browser. The embedded map is provided by Google Maps, which may process data under its own policies. <a href="privacy.html">More information</a>',
         m_val: "Enter your name and a valid email so we can reply.",
         m_dates: "The check-out date must be after check-in.",
         m_required_dates: "Please select your arrival and departure dates.",
@@ -66,7 +67,13 @@
         m_sending: "Sending…",
         m_ok: "Thank you! Your request has been sent. We will reply shortly.",
         m_err: "Something went wrong. Please write to us on WhatsApp or by email.",
-        aria_menu: "Open menu", aria_wa: "Write to us on WhatsApp",
+        aria_menu: "Open menu", aria_menu_close: "Close menu",
+        m_room: "Choose a valid room or leave “No preference”.",
+        m_guests: "Choose a number of guests that fits the room.",
+        m_guests_reset: "The guest number does not fit this room: please choose again.",
+        m_timeout: "The server did not reply in time. Your request may still have arrived: check or write to us on WhatsApp before sending again.",
+        wa_room: "Room", wa_in: "Check-in", wa_out: "Check-out", wa_guests: "Guests",
+        aria_wa: "Write to us on WhatsApp",
         wa_msg: "Hello, I would like information about the rooms."
     };
 
@@ -79,6 +86,12 @@
         m_ok: "Grazie! La tua richiesta è stata inviata. Ti rispondiamo a breve.",
         m_err: "Qualcosa non ha funzionato. Scrivici su WhatsApp o via email.",
         aria_menu: "Apri il menu",
+        aria_menu_close: "Chiudi il menu",
+        m_room: "Scegli una camera valida oppure lascia «Nessuna preferenza».",
+        m_guests: "Scegli un numero di ospiti compatibile con la camera.",
+        m_guests_reset: "Il numero di ospiti non è compatibile con questa camera: scegli di nuovo.",
+        m_timeout: "Il server non ha risposto in tempo. La richiesta potrebbe comunque essere arrivata: controlla o scrivici su WhatsApp prima di reinviarla.",
+        wa_room: "Camera", wa_in: "Arrivo", wa_out: "Partenza", wa_guests: "Ospiti",
         aria_wa: "Scrivici su WhatsApp",
         wa_msg: "Buongiorno, vorrei informazioni sulle camere.",
         title: document.title,
@@ -88,6 +101,8 @@
     var nodes = [].slice.call(document.querySelectorAll('[data-i18n]'));
     nodes.forEach(function (n) { n.dataset.it = n.innerHTML });
     var lang = 'it';
+    var waLinks = [].slice.call(document.querySelectorAll('a[href^="https://wa.me/"]'));
+    var lastKey = '';
 
     function t(k) { return (lang === 'en' ? EN : IT)[k] }
 
@@ -100,12 +115,11 @@
         document.documentElement.lang = l;
         document.title = t('title');
         document.querySelector('meta[name=description]').content = t('desc');
-        document.querySelector('.menu-btn').setAttribute('aria-label', t('aria_menu'));
         var wa = document.getElementById('wa');
         wa.setAttribute('aria-label', t('aria_wa'));
-        var url = 'https://wa.me/393898873499?text=' + encodeURIComponent(t('wa_msg'));
-        wa.href = url;
-        document.getElementById('wa2').href = url;
+        menuLabel();
+        updateWhatsApp();
+        if (st && lastKey) st.textContent = t(lastKey);
         document.querySelectorAll('.lang button').forEach(function (b) {
             b.setAttribute('aria-pressed', b.dataset.lang === l);
         });
@@ -122,6 +136,18 @@
 
     /* ---------- Header e menu ---------- */
     var h = document.querySelector('header'), mb = document.querySelector('.menu-btn'), menu = document.getElementById('menu');
+    function menuLabel() {
+        var b = document.querySelector('.menu-btn'), m = document.getElementById('menu');
+        b.setAttribute('aria-label', t(m.classList.contains('open') ? 'aria_menu_close' : 'aria_menu'));
+    }
+    function closeMenu() {
+        menu.classList.remove('open');
+        mb.setAttribute('aria-expanded', 'false');
+        menuLabel();
+    }
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && menu.classList.contains('open')) { closeMenu(); mb.focus(); }
+    });
     function onScroll() { h.classList.toggle('solid', window.scrollY > 40) }
     onScroll();
     addEventListener('scroll', onScroll, { passive: true });
@@ -129,12 +155,12 @@
     mb.addEventListener('click', function () {
         var o = menu.classList.toggle('open');
         mb.setAttribute('aria-expanded', o);
+        menuLabel();
     });
 
     menu.addEventListener('click', function (e) {
         if (e.target.tagName === 'A') {
-            menu.classList.remove('open');
-            mb.setAttribute('aria-expanded', 'false');
+            closeMenu();
         }
     });
 
@@ -149,26 +175,21 @@
     }, { threshold: .12 }) : null;
 
     document.querySelectorAll('.rv').forEach(function (el) {
-        io ? io.observe(el) : el.classList.add('in');
+        if (io) { el.classList.add('rv-wait'); io.observe(el); }
     });
 
     /* ---------- Camera preselezionata ---------- */
     document.querySelectorAll('[data-room]').forEach(function (a) {
         a.addEventListener('click', function () {
             document.getElementById('camera').value = a.dataset.room;
+            syncGuests(); updateWhatsApp();
         });
     });
 
     /* ---------- Form Web3Forms (AJAX) ---------- */
     var f = document.getElementById('form'), st = document.getElementById('status'), btn = document.getElementById('send');
 
-    function formatLocalDate(date) {
-        var year = date.getFullYear();
-        var month = String(date.getMonth() + 1).padStart(2, '0');
-        var day = String(date.getDate()).padStart(2, '0');
-
-        return year + '-' + month + '-' + day;
-    }
+    var formatLocalDate = BookingRules.formatLocalDate;
 
     var today = formatLocalDate(new Date());
 
@@ -176,74 +197,105 @@
     f.partenza.min = today;
 
     f.arrivo.addEventListener('change', function () {
-        if (!f.arrivo.value) {
-            f.partenza.min = formatLocalDate(new Date());
-            return;
-        }
-
-        var parts = f.arrivo.value.split('-').map(Number);
-        var nextDay = new Date(
-            parts[0],
-            parts[1] - 1,
-            parts[2] + 1
-        );
-
-        f.partenza.min = formatLocalDate(nextDay);
-
-        if (
-            f.partenza.value &&
-            f.partenza.value < f.partenza.min
-        ) {
-            f.partenza.value = '';
-        }
+        f.partenza.min = BookingRules.nextDay(f.arrivo.value) || formatLocalDate(new Date());
+        if (f.partenza.value && f.partenza.value < f.partenza.min) f.partenza.value = '';
     });
 
     function say(k, err) {
+        lastKey = k;
         st.textContent = t(k);
         st.classList.toggle('err', !!err);
     }
 
+    var FIELDS = ['nome', 'email', 'arrivo', 'partenza', 'camera', 'ospiti'];
+    var MSG = { contact: 'm_val', dates_required: 'm_required_dates', past: 'm_past',
+                order: 'm_dates', room: 'm_room', guests: 'm_guests' };
+    var sending = false;
+
+    function clearErrors() {
+        FIELDS.forEach(function (n) {
+            f[n].removeAttribute('aria-invalid');
+            f[n].removeAttribute('aria-describedby');
+        });
+    }
+    function fail(key, field) {
+        clearErrors();
+        say(key, true);
+        if (field && f[field]) {
+            f[field].setAttribute('aria-invalid', 'true');
+            f[field].setAttribute('aria-describedby', 'status');
+            f[field].focus();
+        }
+    }
+    function syncGuests() {
+        var max = BookingRules.maxGuests(f.camera.value) || 4;
+        var changed = f.ospiti.value && Number(f.ospiti.value) > max;
+        [].forEach.call(f.ospiti.options, function (o) { o.disabled = Number(o.value) > max; });
+        if (changed) { f.ospiti.selectedIndex = -1; say('m_guests_reset', false); }
+    }
+    function whatsappText() {
+        var l = [t('wa_msg')];
+        if (f && f.camera.value) l.push(t('wa_room') + ': ' + f.camera.value);
+        if (f && f.arrivo.value) l.push(t('wa_in') + ': ' + f.arrivo.value);
+        if (f && f.partenza.value) l.push(t('wa_out') + ': ' + f.partenza.value);
+        if (f && f.ospiti.value) l.push(t('wa_guests') + ': ' + f.ospiti.value);
+        return l.join('\n');
+    }
+    function updateWhatsApp() {
+        var url = 'https://wa.me/393898873499?text=' + encodeURIComponent(whatsappText());
+        waLinks.forEach(function (a) { a.href = url; });
+    }
+    function resetFormState() {
+        var d = formatLocalDate(new Date());
+        f.arrivo.min = d; f.partenza.min = d;
+        syncGuests(); updateWhatsApp();
+    }
+
+    f.camera.addEventListener('change', function () { syncGuests(); updateWhatsApp(); });
+    ['arrivo', 'partenza', 'ospiti'].forEach(function (n) {
+        f[n].addEventListener('change', updateWhatsApp);
+    });
+    syncGuests();
+    updateWhatsApp();
+
     f.addEventListener('submit', function (e) {
         e.preventDefault();
-        if (!f.nome.value.trim() || !/^\S+@\S+\.\S+$/.test(f.email.value)) {
-            say('m_val', true);
-            return;
-        }
-        if (f.arrivo.value < formatLocalDate(new Date())) {
-            say('m_past', true);
-            return;
-        }
-        if (!f.arrivo.value || !f.partenza.value) {
-            say('m_required_dates', true);
-            return;
-        }
-        if (f.partenza.value <= f.arrivo.value) {
-            say('m_dates', true);
-            return;
-        }
+        if (sending) return;
+        var v = BookingRules.validate({
+            nome: f.nome.value, email: f.email.value, arrivo: f.arrivo.value,
+            partenza: f.partenza.value, camera: f.camera.value, ospiti: f.ospiti.value
+        }, formatLocalDate(new Date()));
+        if (!v.ok) { fail(MSG[v.code], v.field); return; }
+        clearErrors();
+
         var data = Object.fromEntries(new FormData(f).entries());
-        if (String(data.access_key).indexOf('INSERISCI') === 0) {
-            console.warn('Sostituisci access_key con quella ricevuta da Web3Forms.');
-        }
+        sending = true;
         btn.disabled = true;
+        f.setAttribute('aria-busy', 'true');
         say('m_sending', false);
+
+        var ctrl = 'AbortController' in window ? new AbortController() : null;
+        var timedOut = false;
+        var timer = setTimeout(function () { timedOut = true; if (ctrl) ctrl.abort(); }, 15000);
 
         fetch('https://api.web3forms.com/submit', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data),
+            signal: ctrl ? ctrl.signal : undefined
         })
-            .then(function (r) { return r.json() })
+            .then(function (r) { if (!r.ok) throw new Error('http'); return r.json(); })
             .then(function (j) {
-                if (j.success) {
-                    say('m_ok', false);
-                    f.reset();
-                } else {
-                    say('m_err', true);
-                }
+                if (j && j.success) { f.reset(); resetFormState(); say('m_ok', false); }
+                else say('m_err', true);
             })
-            .catch(function () { say('m_err', true) })
-            .finally(function () { btn.disabled = false });
+            .catch(function () { say(timedOut ? 'm_timeout' : 'm_err', true); })
+            .finally(function () {
+                clearTimeout(timer);
+                sending = false;
+                btn.disabled = false;
+                f.removeAttribute('aria-busy');
+            });
     });
 
     document.getElementById('yr').textContent = new Date().getFullYear();
