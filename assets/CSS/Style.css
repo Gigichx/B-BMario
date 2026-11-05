@@ -1,7 +1,7 @@
 :root {
     --olive-deep: #283024;
     --olive: #4F5B43;
-    --terracotta: #B86649;
+    --terracotta: #A3563C;
     --sabbia: #DFD0B6;
     --pietra: #F7F4ED;
     --serif: Georgia, "Times New Roman", serif;
@@ -346,12 +346,6 @@ nav ul.open a {
     }
 }
 
-@media(min-width:1000px) {
-    .grid {
-        grid-template-columns: repeat(2, 1fr)
-    }
-}
-
 .card {
     background: var(--pietra);
     border: 1px solid var(--sabbia);
@@ -370,8 +364,6 @@ nav ul.open a {
     position: relative;
     aspect-ratio: 4/3;
     background: linear-gradient(135deg, var(--sabbia), #cdbb9b);
-    display: grid;
-    place-items: center;
     color: var(--olive)
 }
 
@@ -822,16 +814,8 @@ footer a:hover {
     }
 }
 
-.rv {
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity .7s, transform .7s
-}
-
-.rv.in {
-    opacity: 1;
-    transform: none
-}
+.rv.rv-wait{opacity:0;transform:translateY(16px);transition:opacity .7s,transform .7s}
+.rv.rv-wait.in{opacity:1;transform:none}
 
 @media(prefers-reduced-motion:reduce) {
     * {
@@ -840,10 +824,7 @@ footer a:hover {
         scroll-behavior: auto !important
     }
 
-    .rv {
-        opacity: 1;
-        transform: none
-    }
+    .rv.rv-wait {opacity:1; transform:none}
 }
 
 /* Avviso cookie */
@@ -875,3 +856,9 @@ iframe,img{max-width:100%}
 .hero-fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
 .hero>.wrap{position:relative;z-index:1}
 @media(min-width:700px){.hero{padding-bottom:9rem}}
+
+.skip{position:absolute;left:1rem;top:-100px;z-index:100;background:var(--pietra);color:var(--olive-deep);padding:.7rem 1rem;border-radius:var(--radius);font-weight:600;text-decoration:none}
+.skip:focus{top:max(1rem,env(safe-area-inset-top))}
+main:focus{outline:none}
+[aria-invalid="true"]{border-color:#9b2c1c}
+header :focus-visible,.hero :focus-visible,.services :focus-visible,footer :focus-visible,.incentive :focus-visible,.cookie :focus-visible{outline-color:var(--sabbia)}
