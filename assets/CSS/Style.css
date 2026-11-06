@@ -862,3 +862,71 @@ iframe,img{max-width:100%}
 main:focus{outline:none}
 [aria-invalid="true"]{border-color:#9b2c1c}
 header :focus-visible,.hero :focus-visible,.services :focus-visible,footer :focus-visible,.incentive :focus-visible,.cookie :focus-visible{outline-color:var(--sabbia)}
+
+/* Icone Phosphor Regular (MIT, assets/icons/LICENSE): decorative, via mask */
+.svc h3::before,.tags li::before,.dist li span::before{content:"";flex:none;background:currentColor;-webkit-mask:var(--i) center/contain no-repeat;mask:var(--i) center/contain no-repeat}
+.svc h3::before{display:block;width:30px;height:30px;margin-bottom:.9rem;color:var(--sabbia)}
+.svc article:nth-child(1) h3{--i:url(../icons/key.svg)}
+.svc article:nth-child(2) h3{--i:url(../icons/coffee.svg)}
+.svc article:nth-child(3) h3{--i:url(../icons/house.svg)}
+.svc article:nth-child(4) h3{--i:url(../icons/car.svg)}
+.tags li{display:inline-flex;align-items:center;gap:.4rem}
+.tags li::before{width:15px;height:15px;color:var(--olive)}
+.tags li:nth-child(1){--i:url(../icons/wifi-high.svg)}
+.tags li[data-i18n="t_ac"]{--i:url(../icons/snowflake.svg)}
+.tags li[data-i18n="t_bath"]{--i:url(../icons/shower.svg)}
+.tags li[data-i18n="t_kit"],.tags li[data-i18n="t_fridge"]{--i:url(../icons/cooking-pot.svg)}
+.tags li:not([data-i18n]):not(:nth-child(1)){--i:url(../icons/television.svg)}
+.tags li[data-i18n="t_wash"]{--i:url(../icons/washing-machine.svg)}
+.dist li span{display:flex;align-items:center;gap:.65rem}
+.dist li span::before{width:20px;height:20px;color:var(--terracotta);--i:url(../icons/map-pin.svg)}
+.dist li:nth-child(1) span{--i:url(../icons/airplane.svg)}
+.dist li:nth-child(2) span{--i:url(../icons/train.svg)}
+.dist li:nth-child(3) span{--i:url(../icons/buildings.svg)}
+.dist li:nth-child(4) span{--i:url(../icons/waves.svg)}
+
+/* Gerarchia delle schede e micro-interazioni */
+.room-price{padding-top:.9rem;border-top:1px solid var(--sabbia)}
+.card{transition:transform .25s,box-shadow .25s}
+.card:hover{box-shadow:0 12px 26px rgba(40,48,36,.12)}
+.btn:active{transform:scale(.98);transition-duration:.08s}
+.btn-primary:hover{box-shadow:0 6px 16px rgba(163,86,60,.3)}
+summary{transition:color .2s}
+summary:hover{color:var(--terracotta)}
+details[open] .inner{animation:open .35s ease both}
+@keyframes open{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* Finitura v2: minimal, caldo, con volta di luce nell'hero */
+:root{--line:rgba(40,48,36,.14);--radius:2px;--space:clamp(4.5rem,9vw,7.5rem)}
+section{padding:var(--space) 0}
+h1,h2,h3{text-wrap:balance;letter-spacing:-.02em}
+p{text-wrap:pretty}
+h2{max-width:20ch}
+section h2::before{content:"";display:block;width:2.5rem;height:1px;background:var(--terracotta);margin-bottom:1.2rem}
+.services h2::before{background:var(--sabbia)}
+
+/* Menu e pulsanti */
+.logo{letter-spacing:.06em}
+nav a{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+.btn{font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;min-height:50px;padding:0 1.9rem}
+
+/* Hero: luce calda, volta in tufo, spazio per l'avviso cookie */
+.hero{padding-bottom:calc(4rem + var(--ck-h,0px));background:linear-gradient(180deg,rgba(40,48,36,.55),rgba(40,48,36,.92)),radial-gradient(60% 50% at 78% 85%,rgba(163,86,60,.22),transparent 70%),radial-gradient(120% 80% at 80% 10%,var(--olive) 0,var(--olive-deep) 70%)}
+@media(min-width:700px){.hero{padding-bottom:calc(6rem + var(--ck-h,0px))}}
+.hero h1{max-width:18ch;font-size:clamp(2.6rem,7.5vw,5.2rem);line-height:1.04;letter-spacing:-.03em}
+.hero p.sub{max-width:46ch}
+.hero::after{content:"";position:absolute;right:max(1.25rem,calc((100vw - var(--max))/2));bottom:0;width:min(30vw,380px);aspect-ratio:3/4;border:1px solid rgba(223,208,182,.3);border-bottom:0;border-radius:999px 999px 0 0;background:linear-gradient(180deg,rgba(223,208,182,.09),transparent 80%);pointer-events:none}
+@media(max-width:859px){.hero::after{display:none}}
+
+/* Camere: schede piatte, prezzi in colonna */
+.rooms{background:var(--pietra)}
+.card{background:#fff;border:1px solid var(--line);transition:border-color .25s}
+.card:hover{transform:none;box-shadow:none;border-color:var(--olive)}
+.card-body{padding:1.75rem;gap:1.1rem}
+.cap{font-size:.9rem}
+.tags li{border-color:var(--line);font-size:.8rem}
+.gallery{background:var(--sabbia)}
+.room-price{display:flex;flex-wrap:wrap;align-items:flex-end;gap:.6rem 1.6rem;font-size:.9rem;font-weight:400;line-height:1.3;color:var(--olive)}
+.room-price span{display:flex;flex-direction:column;gap:.15rem;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase}
+.room-price b{font:400 1.7rem var(--serif);letter-spacing:-.01em;text-transform:none;color:var(--terracotta)}
+.room-price small{flex-basis:100%;font-size:.82rem;color:var(--olive)}
