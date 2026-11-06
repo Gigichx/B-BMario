@@ -59,7 +59,7 @@
         hub_b: "Book on Booking.com", hub_a: "Book on Airbnb",
         ft_p: "Rooms in a traditional home in Bitritto, near Bari.", ft_c: "Contact", ft_s: "Follow us", ft_copy: "All rights reserved.", ft_top: "Back to top",
         ft_priv: "Privacy and cookies", ck_b: "Got it",
-        ck_t: 'This site uses no profiling cookies or analytics of its own: it saves your chosen language and that you have read this notice in your browser. The embedded map is provided by Google Maps, which may process data under its own policies. <a href="privacy.html">More information</a>',
+        ck_t: 'This site does not set its own profiling cookies or use its own analytics. It saves your chosen language and that you have read this notice in your browser. The embedded map is provided by Google Maps, which may use its own cookies or tools and process data under its own policies. <a href="privacy.html">More information</a>',
         m_val: "Enter your name and a valid email so we can reply.",
         m_dates: "The check-out date must be after check-in.",
         m_required_dates: "Please select your arrival and departure dates.",
