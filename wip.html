@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Antiqua Domus | Il nuovo sito sta arrivando</title>
+<meta name="description" content="Antiqua Domus, camere a Bitritto vicino Bari: il nuovo sito sta prendendo forma. Nel frattempo scrivici per informazioni e disponibilità.">
+<meta name="theme-color" content="#283024">
+<link rel="canonical" href="https://antiquadomus.eu/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://antiquadomus.eu/">
+<meta property="og:title" content="Antiqua Domus | Bitritto, vicino Bari">
+<meta property="og:description" content="Il nuovo sito sta prendendo forma. Scrivici per informazioni sulle camere e sulla disponibilità.">
+<meta property="og:locale" content="it_IT">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+:root{--deep:#283024;--olive:#4F5B43;--leaf:#7E8C6B;--stone:#F7F4ED;--sand:#DFD0B6;--terra:#A3563C;--serif:Georgia,"Times New Roman",serif;--sans:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--ease:cubic-bezier(.22,1,.36,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100svh;display:flex;flex-direction:column;font:1rem/1.65 var(--sans);color:var(--stone);-webkit-font-smoothing:antialiased;overflow-x:hidden;
+background:radial-gradient(60% 55% at 76% 52%,rgba(163,86,60,.22),transparent 70%),radial-gradient(120% 90% at 85% 0,var(--olive) 0,var(--deep) 65%) var(--deep);
+padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+.wrap{width:min(100% - 2.5rem,1120px);margin-inline:auto}
+.name{padding-top:1.6rem;font:400 clamp(1.5rem,3vw,2rem)/1.2 var(--serif);letter-spacing:.05em}
+main{flex:1;display:grid;align-items:center;padding:1.5rem 0 2.5rem}
+main .wrap{display:grid;gap:1.5rem;align-items:center}
+.art{width:min(72%,270px);margin-inline:auto}
+.art svg{display:block;width:100%;height:auto;overflow:visible}
+.tag{display:inline-flex;align-items:center;gap:.8rem;font:600 .75rem var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--sand)}
+.dots{display:inline-flex;gap:.32rem}
+.dots i{width:5px;height:5px;border-radius:50%;background:var(--sand)}
+h1{margin:1rem 0 1.1rem;max-width:18ch;font:400 clamp(2rem,6.4vw,3.7rem)/1.07 var(--serif);letter-spacing:-.025em;text-wrap:balance}
+.lead{max-width:46ch;color:var(--sand);text-wrap:pretty}
+.place{display:flex;align-items:center;gap:.5rem;margin:1.4rem 0 1.8rem;font-size:.95rem;color:var(--sand)}
+.btns{display:flex;flex-wrap:wrap;gap:.8rem}
+.btn{flex:1 1 220px;display:inline-flex;align-items:center;justify-content:center;gap:.65rem;min-height:52px;padding:0 1.5rem;border:1.5px solid transparent;border-radius:2px;font:600 .8rem var(--sans);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;
+transition:transform .35s var(--ease),background-color .25s,color .25s,box-shadow .35s var(--ease)}
+.btn-main{background:var(--terra);color:#fff}
+.btn-main:hover{background:#8F4A33;transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.28)}
+.btn-line{border-color:rgba(223,208,182,.55);color:var(--stone)}
+.btn-line:hover{background:var(--stone);color:var(--deep);transform:translateY(-2px)}
+.btn:active{transform:scale(.97);transition-duration:.08s}
+:focus-visible{outline:3px solid var(--sand);outline-offset:3px}
+/* Icone Phosphor Regular (MIT, assets/icons/LICENSE): decorative */
+.btn::before,.place::before{content:"";flex:none;width:18px;height:18px;background:currentColor;-webkit-mask:var(--i) center/contain no-repeat;mask:var(--i) center/contain no-repeat}
+.wa{--i:url(assets/icons/whatsapp-logo.svg)}
+.mail{--i:url(assets/icons/envelope-simple.svg)}
+.place{--i:url(assets/icons/map-pin.svg)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.4rem 1.5rem;padding-bottom:1.6rem;font-size:.85rem;color:var(--sand)}
+.foot a{color:inherit;text-underline-offset:3px}
+.foot a:hover{color:var(--stone)}
+@media(min-width:860px){
+main .wrap{grid-template-columns:1.1fr .9fr;gap:4rem}
+.copy{grid-column:1;grid-row:1}
+.art{grid-column:2;grid-row:1;width:min(100%,460px);justify-self:center}
+.btn{flex:0 1 auto}
+}
+/* Movimento: solo se consentito. Senza, la pagina è statica e completa (finestra già accesa). */
+@media(prefers-reduced-motion:no-preference){
+.rise{animation:rise .95s var(--ease) both;animation-delay:var(--d,0s)}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}}
+.lit,.glow{animation:on 2.6s 1.1s ease-out both}
+.glow{animation:on 2.6s 1.1s ease-out both,breathe 7s 3.7s ease-in-out infinite}
+@keyframes on{from{opacity:0}}
+@keyframes breathe{50%{opacity:.42}}
+.sprig{transform-origin:44px 330px;animation:sway 7s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(-1.6deg)}50%{transform:rotate(1.6deg)}}
+.dots i{animation:dot 1.6s ease-in-out infinite;animation-delay:calc(var(--n)*.2s)}
+@keyframes dot{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-4px);opacity:1}}
+}
+</style>
+</head>
+<body>
+<header class="wrap"><p class="name rise">Antiqua Domus</p></header>
+
+<main>
+  <div class="wrap">
+    <div class="art rise" style="--d:.1s">
+      <svg viewBox="0 0 400 360" role="img" aria-labelledby="art-t" focusable="false">
+        <title id="art-t">Casa pugliese stilizzata con portale ad arco, finestra illuminata e un rametto d'ulivo</title>
+        <defs>
+          <radialGradient id="g"><stop offset="0" stop-color="#F3CF93" stop-opacity=".8"/><stop offset="1" stop-color="#F3CF93" stop-opacity="0"/></radialGradient>
+          <path id="leaf" d="M0 0C6-7 18-7 26 0 18 7 6 7 0 0Z"/>
+        </defs>
+        <ellipse cx="200" cy="328" rx="175" ry="8" fill="#000" opacity=".18"/>
+        <circle class="glow" cx="272" cy="200" r="125" fill="url(#g)" opacity=".6"/>
+        <rect x="70" y="122" width="260" height="206" fill="#DFD0B6"/>
+        <rect x="60" y="106" width="280" height="18" fill="#F7F4ED"/>
+        <path d="M70 160H330M70 198H330M70 236H330M70 274H330M70 312H330" stroke="#4F5B43" stroke-opacity=".18" stroke-width="1.5"/>
+        <path d="M130 328V246a30 30 0 0 1 60 0V328Z" fill="#283024"/>
+        <path d="M122 328V246a38 38 0 0 1 76 0V328" fill="none" stroke="#A3563C" stroke-width="7"/>
+        <circle cx="160" cy="176" r="11" fill="#4F5B43" stroke="#F7F4ED" stroke-width="3"/>
+        <path d="M244 234V198a28 28 0 0 1 56 0V234Z" fill="#4F5B43"/>
+        <path class="lit" d="M244 234V198a28 28 0 0 1 56 0V234Z" fill="#F3CF93"/>
+        <path d="M272 170V234M244 204H300" stroke="#283024" stroke-width="3"/>
+        <rect x="238" y="234" width="68" height="6" fill="#F7F4ED"/>
+        <g class="sprig">
+          <path d="M44 330C46 292 58 262 98 238" fill="none" stroke="#7E8C6B" stroke-width="3" stroke-linecap="round"/>
+          <g fill="#7E8C6B">
+            <use href="#leaf" transform="translate(46 308) rotate(-150)"/><use href="#leaf" transform="translate(47 296) rotate(-30)"/>
+            <use href="#leaf" transform="translate(52 282) rotate(-160)"/><use href="#leaf" transform="translate(56 272) rotate(-20)"/>
+            <use href="#leaf" transform="translate(68 258) rotate(-155)"/><use href="#leaf" transform="translate(76 250) rotate(-15)"/>
+            <use href="#leaf" transform="translate(98 238) rotate(-35)"/>
+          </g>
+          <circle cx="38" cy="290" r="3.5" fill="#A3563C"/><circle cx="66" cy="266" r="3.5" fill="#A3563C"/>
+        </g>
+      </svg>
+    </div>
+
+    <section class="copy" aria-labelledby="t">
+      <p class="tag rise" style="--d:.2s">Work in progress <span class="dots" aria-hidden="true"><i style="--n:0"></i><i style="--n:1"></i><i style="--n:2"></i></span></p>
+      <h1 id="t" class="rise" style="--d:.3s">Stiamo preparando la tua prossima pausa in Puglia.</h1>
+      <p class="lead rise" style="--d:.4s">Il nuovo sito di Antiqua Domus sta prendendo forma. Nel frattempo, scrivici per informazioni sulle camere e sulla disponibilità.</p>
+      <p class="place rise" style="--d:.5s">Bitritto · vicino Bari</p>
+      <div class="btns rise" style="--d:.6s">
+        <a class="btn btn-main wa" href="https://wa.me/393898873499?text=Buongiorno%2C%20vorrei%20informazioni%20sulle%20camere%20e%20sulla%20disponibilit%C3%A0%20di%20Antiqua%20Domus.">Scrivici su WhatsApp</a>
+        <a class="btn btn-line mail" href="mailto:marioantico@gmail.com?subject=Richiesta%20informazioni&amp;body=Buongiorno%2C%20vorrei%20informazioni%20sulle%20camere%20e%20sulla%20disponibilit%C3%A0.">Contattaci via email</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="wrap foot"><span>© 2026 Antiqua Domus · Bitritto</span><a href="privacy.html">Privacy e cookie</a></footer>
+</body>
+</html>
