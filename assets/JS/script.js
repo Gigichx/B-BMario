@@ -174,9 +174,11 @@
         });
     }, { threshold: .12 }) : null;
 
-    document.querySelectorAll('.rv').forEach(function (el) {
-        if (io) { el.classList.add('rv-wait'); io.observe(el); }
-    });
+    if (!document.documentElement.classList.contains('gsap-motion')) {
+        document.querySelectorAll('.rv').forEach(function (el) {
+            if (io) { el.classList.add('rv-wait'); io.observe(el); }
+        });
+    }
 
     /* ---------- Camera preselezionata ---------- */
     document.querySelectorAll('[data-room]').forEach(function (a) {
