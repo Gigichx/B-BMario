@@ -5,7 +5,7 @@
         desc: "Antiqua Domus: two independent rooms with a kitchenette in a stone-vaulted home in Bitritto, near Bari. Book directly, no commission.",
         skip: "Skip to content",
         n_home: "The house", n_rooms: "Rooms", n_serv: "Services", n_near: "Around us", n_rev: "Reviews", n_book: "Book",
-        h1: "A stay with the rhythm of home.",
+        h1: "A stay with the <i>rhythm of home.</i>",
         sub: "Two independent rooms with a kitchenette in a home of tuff and stone in Bitritto, minutes from Bari.",
         c1: "Discover the Rooms", c2: "Request Availability",
         id_h: "A home of tuff and living stone",
